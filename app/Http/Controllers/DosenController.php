@@ -10,6 +10,7 @@ use App\Jadwal;
 use App\DosenMatkul;
 use App\MateriTugas;
 use App\Gelar;
+use Illuminate\Support\Str;
 use File;
 
 class DosenController extends Controller
@@ -37,7 +38,7 @@ class DosenController extends Controller
         $user->password = bcrypt($request->nip);
         $user->avatar  = 'default.png';
         $user->role = 'dosen';
-        $user->remember_token = str_random(60);
+        $user->remember_token = Str::random(60);
         $user->save();
 
 
